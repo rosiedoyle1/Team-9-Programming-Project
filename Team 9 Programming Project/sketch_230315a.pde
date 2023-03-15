@@ -1,9 +1,3 @@
-final int MARGIN = 10;
-final int PADDLEWIDTH = 90;
-final int PADDLEHEIGHT = 30;
-final int SCREENX = 600;
-final int SCREENY = 680;
-final int BALLRADIUS = 20;
 class Ball
 {
   float x; float y;
