@@ -59,6 +59,18 @@ public class FlightData {
           break;
         case 10:
           schedArriv = cell.getStringCellValue();
+          break;
+        case 11:
+          arrivTime = cell.getStringCellValue();
+          break;
+        case 12:
+          cancelled = (boolean) cell.getStringCellValue();
+          break;
+        case 13:
+          diverted = (boolean) cell.getStringCellValue();
+          break;
+        case 14: 
+          distance = (int) cell.getStringCellValue();
         }
       }
       if (!origin.isEmpty() && !destination.isEmpty() && passengers > 0) 
@@ -66,7 +78,6 @@ public class FlightData {
         System.out.println("Flight from " + origin + " to " + destination + " with " + passengers + " passengers.");
       }
     }
-    workbook.close();
     file.close();
   }
   catch (IOException e) 
