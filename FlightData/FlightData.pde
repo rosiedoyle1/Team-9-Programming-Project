@@ -79,10 +79,6 @@ public class FlightData {
           distance = (int) cell.getStringCellValue();
         }
       }
-      if (!origin.isEmpty() && !destination.isEmpty() && passengers > 0) 
-      {
-        System.out.println("Flight from " + origin + " to " + destination + " with " + passengers + " passengers.");
-      }
     }
     file.close();
   }
