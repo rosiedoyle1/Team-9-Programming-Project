@@ -5,7 +5,7 @@ import java.io.IOException;
 public class FlightData {
 
   try {
-   FileInputStream file = new FileInputStream(new File("flights100k(1).xlsx"));
+   FileReader file = new FileReader(new File("flights100k(1).xlsx"));
    BufferedReader buffer = new BufferedReader(file);
    int i;
    while ((i= buffer.read()!=-1)
@@ -14,21 +14,21 @@ public class FlightData {
     }
     
     for (Row row : sheet) {
-      Arraylist<String> flightDate;
-      Arraylist<String> carrier;
-      Arraylist<int> flightNumber;
-      Arraylist<String> originCity;
-      Arraylist<String> originState;
-      Arraylist<String> originWAC;
-      Arraylist<String> destinationAirport;
-      Arraylist<String destinationCity;
-      Arraylist<int> schedDeptTime;
-      Arraylist<int> deptTime;
-      Arraylist<int> schedArrivTime;
-      Arraylist<int> arrivTime;
-      Arraylist<boolean> cancelled;
-      Arraylist<boolean> diverted;
-      Arraylist<int> distance;
+      ArrayList<String> flightDate;
+      ArrayList<String> carrier;
+      ArrayList<int> flightNumber;
+      ArrayList<String> originCity;
+      ArrayList<String> originState;
+      ArrayList<String> originWAC;
+      ArrayList<String> destinationAirport;
+      ArrayList<String destinationCity;
+      ArrayList<int> schedDeptTime;
+      ArrayList<int> deptTime;
+      ArrayList<int> schedArrivTime;
+      ArrayList<int> arrivTime;
+      ArrayList<boolean> cancelled;
+      ArrayList<boolean> diverted;
+      ArrayList<int> distance;
       for (Cell cell : row) 
       {
         switch (cell.getColumnIndex()) 
