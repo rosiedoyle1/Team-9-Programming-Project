@@ -6,7 +6,13 @@ public class FlightData {
 
   try {
    FileInputStream file = new FileInputStream(new File("flights100k(1).xlsx"));
- 
+   BufferedReader buffer = new BufferedReader(file);
+   int i;
+   while ((i= buffer.read()!=-1)
+    {
+      System.out.print((char)i);
+    }
+    
     for (Row row : sheet) {
       Arraylist<String> flightDate;
       Arraylist<String> carrier;
