@@ -1,9 +1,10 @@
-Table table; //<>// //<>//
+Table table; //<>//
 ArrayList<DataPoint> dataPoints;
+ArrayList<String> originArray = new ArrayList<String>();
 
 void settings()
 {
-  size(1600, 900);
+  size(SCREENX, SCREENY);
 }
 
 void setup() {
@@ -15,6 +16,7 @@ void setup() {
     String mkt_carrier = row.getString("MKT_CARRIER");
     int mkt_carrier_fl_num = row.getInt("MKT_CARRIER_FL_NUM");
     String origin = row.getString("ORIGIN");
+    originArray.add(origin);
     String origin_city_name = row.getString("ORIGIN_CITY_NAME");
     String origin_state_abr = row.getString("ORIGIN_STATE_ABR");
     int origin_wac = row.getInt("ORIGIN_WAC");
@@ -32,7 +34,8 @@ void setup() {
 
     DataPoint dp = new DataPoint(fl_date, mkt_carrier, mkt_carrier_fl_num, origin, origin_city_name, origin_state_abr, origin_wac, dest, dest_city_name, dest_state_abr, dest_wac, crs_dep_time, dep_time, crs_arr_time, arr_time, cancelled, diverted, distance);
     dataPoints.add(dp);
-    System.out.println(dp.toString());
+    
+    //System.out.println(dp.toString());
   }
 }
 
@@ -40,8 +43,7 @@ void draw()
 {
   int a=10;
   int b=20;
-  background(0);
-  
+  background(0); //<>//
   for (int i = 0; i < dataPoints.size(); i++)
   {
     PFont theFont = loadFont("ArialMT-10.vlw");
@@ -59,4 +61,5 @@ void draw()
       b = b + 225;
     }
   }
+  
 }
