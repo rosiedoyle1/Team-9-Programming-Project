@@ -6,13 +6,7 @@ public class FlightData {
 
   try {
    FileInputStream file = new FileInputStream(new File("flights100k(1).xlsx"));
-   BufferedReader buffer = new BufferedReader(file);
-   int i;
-   while ((i= buffer.read()!=-1)
-    {
-      System.out.print((char)i);
-    }
-    
+ 
     for (Row row : sheet) {
       Arraylist<String> flightDate;
       Arraylist<String> carrier;
@@ -22,10 +16,10 @@ public class FlightData {
       Arraylist<String> originWAC;
       Arraylist<String> destinationAirport;
       Arraylist<String destinationCity;
-      Arraylist<int> schedDeptTime;
-      Arraylist<int> deptTime;
-      Arraylist<int> schedArrivTime;
-      Arraylist<int> arrivTime;
+      Arraylist<float> schedDeptTime;
+      Arraylist<float> deptTime;
+      Arraylist<float> schedArrivTime;
+      Arraylist<float> arrivTime;
       Arraylist<boolean> cancelled;
       Arraylist<boolean> diverted;
       Arraylist<int> distance;
