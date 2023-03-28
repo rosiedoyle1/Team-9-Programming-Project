@@ -1,62 +1,80 @@
-Table table; //<>// //<>//
-ArrayList<DataPoint> dataPoints;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Collections;
+import java.util.Set;
+import java.util.HashSet;
 
-void settings()
-{
-  size(1600, 900);
-}
+HashMap<String, Integer> airportCount;
 
-void setup() {
-  table = loadTable("flights2k(1).csv", "header");
-  dataPoints = new ArrayList<DataPoint>();
+class Histogram {
+  String xAxisLabel;
+  String yAxisLabel;
+  String title;
+  ArrayList<Widget> barArray = new ArrayList<Widget>();
+  PFont theFont = loadFont("ArialMT-25.vlw");
+  PFont mediumFont = loadFont("ArialMT-50.vlw");
+  color theColour = color(#FA90E1);
+  ArrayList<String> uniqueValues = new ArrayList<String>();
+  ArrayList<String> airportNames = originArray;
+  Set<String> set = new HashSet<>(airportNames);
+  int xAxisWidth = (SCREENX*2)/3;
 
-  for (TableRow row : table.rows()) {
-    String fl_date = row.getString("FL_DATE");
-    String mkt_carrier = row.getString("MKT_CARRIER");
-    int mkt_carrier_fl_num = row.getInt("MKT_CARRIER_FL_NUM");
-    String origin = row.getString("ORIGIN");
-    String origin_city_name = row.getString("ORIGIN_CITY_NAME");
-    String origin_state_abr = row.getString("ORIGIN_STATE_ABR");
-    int origin_wac = row.getInt("ORIGIN_WAC");
-    String dest = row.getString("DEST");
-    String dest_city_name = row.getString("DEST_CITY_NAME");
-    String dest_state_abr = row.getString("DEST_STATE_ABR");
-    int dest_wac = row.getInt("DEST_WAC");
-    int crs_dep_time = row.getInt("CRS_DEP_TIME");
-    int dep_time = row.getInt("DEP_TIME");
-    int crs_arr_time = row.getInt("CRS_ARR_TIME");
-    int arr_time = row.getInt("ARR_TIME");
-    float cancelled = row.getFloat("CANCELLED");
-    float diverted = row.getFloat("DIVERTED");
-    int distance = row.getInt("DISTANCE");
+  Histogram(ArrayList<String> airportNames, String xAxis, String yAxis, String header) {
+    airportCount = new HashMap<>();
+    xAxisLabel = xAxis;
+    yAxisLabel = yAxis;
+    title = header;
 
-    DataPoint dp = new DataPoint(fl_date, mkt_carrier, mkt_carrier_fl_num, origin, origin_city_name, origin_state_abr, origin_wac, dest, dest_city_name, dest_state_abr, dest_wac, crs_dep_time, dep_time, crs_arr_time, arr_time, cancelled, diverted, distance);
-    dataPoints.add(dp);
-    System.out.println(dp.toString());
+    // iterate over the list of airport names
+    for (String airport : airportNames) {
+      // if the airport is already in the map, increment its count
+      if (airportCount.containsKey(airport)) {
+        int count = airportCount.get(airport);
+        airportCount.put(airport, count + 1);
+      }
+      // otherwise, add the airport to the map with a count of 1
+      else {
+        airportCount.put(airport, 1);
+      }
+    }
   }
-}
 
-void draw()
-{
-  int a=10;
-  int b=20;
-  background(0);
-  
-  for (int i = 0; i < dataPoints.size(); i++)
+  void draw()
   {
-    PFont theFont = loadFont("ArialMT-10.vlw");
-    textSize(20);
+    background(0);
+    uniqueValues.addAll(set);
+    int barWidth = xAxisWidth/uniqueValues.size();
+    textFont(mediumFont);
+    fill(255);
+    text(title, SCREENX/5, MARGIN-70);
+    fill(255);
+    line(MARGIN-10, SCREENY-MARGIN, MARGIN+xAxisWidth, SCREENY-MARGIN);
+    stroke(255);
+    line(MARGIN, SCREENY-MARGIN+10, MARGIN, 90);
+    stroke(255);
     textFont(theFont);
-    textAlign(LEFT);
-    DataPoint dp = dataPoints.get(i);
-    text(dp.toString(), a, b);
-    if (i%4 ==0 && i>=4)
+    text(yAxisLabel, 0, SCREENY/2);
+    fill(255);
+    text(xAxisLabel, SCREENX/3, SCREENY-MARGIN+40);
+    fill(255);
+    for (int i=0; i<airportCount.size(); i++)
     {
-      b = 20;
-      a = a+200;
-    } else
+      Widget newWidget = new Widget(MARGIN+(i*barWidth), SCREENY-(MARGIN+(3*airportCount.get(uniqueValues.get(i)))), barWidth, 3*airportCount.get(uniqueValues.get(i)),  "", theColour, theFont, i+9);
+      barArray.add(newWidget);
+    }
+    for (int i=0; i<barArray.size(); i++)
     {
-      b = b + 225;
+      barArray.get(i).draw();
+      int event = barArray.get(i).getEvent(mouseX, mouseY);
+      if (event == i+9)
+      {
+        textFont(mediumFont);
+        println("hey");
+        fill(255);
+        text(uniqueValues.get(i) +":", SCREENX-300, SCREENY/2);
+        fill(255);
+        text(airportCount.get(uniqueValues.get(i)) +" Flights", SCREENX-300, (SCREENY/2)+50);
+      }
     }
   }
 }
