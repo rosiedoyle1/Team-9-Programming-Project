@@ -1,65 +1,77 @@
-Table table; //<>//
+ArrayList<Integer> estArrivalTimeArray = new ArrayList<Integer>(); //<>// //<>//
+ArrayList<Integer> arrivalTimeArray = new ArrayList<Integer>();
+ArrayList<Integer> seperateByTime = new ArrayList<Integer>();
+ArrayList<Float> cancelledArray = new ArrayList<Float>();
+ArrayList<Float> divertedArray = new ArrayList<Float>();
+ArrayList<String> airports = new ArrayList<String>();
 ArrayList<DataPoint> dataPoints;
-ArrayList<String> originArray = new ArrayList<String>();
+PrintPieChart cancellations;
+PrintPieChart diversions;
+Histogram airportCounter;
+DataPrinter printer;
+HomePage thePage;
+int screen = 1;
+Table table;
+Exit exit2;
+Exit exit3;
+Exit exit4;
+Exit exit6;
+Exit exit7;
+int[] c;
+int[] d;
+int a;
+int b;
 
 void settings()
 {
   size(SCREENX, SCREENY);
 }
 
-void setup() {
-  table = loadTable("flights2k(1).csv", "header");
-  dataPoints = new ArrayList<DataPoint>();
-
-  for (TableRow row : table.rows()) {
-    String fl_date = row.getString("FL_DATE");
-    String mkt_carrier = row.getString("MKT_CARRIER");
-    int mkt_carrier_fl_num = row.getInt("MKT_CARRIER_FL_NUM");
-    String origin = row.getString("ORIGIN");
-    originArray.add(origin);
-    String origin_city_name = row.getString("ORIGIN_CITY_NAME");
-    String origin_state_abr = row.getString("ORIGIN_STATE_ABR");
-    int origin_wac = row.getInt("ORIGIN_WAC");
-    String dest = row.getString("DEST");
-    String dest_city_name = row.getString("DEST_CITY_NAME");
-    String dest_state_abr = row.getString("DEST_STATE_ABR");
-    int dest_wac = row.getInt("DEST_WAC");
-    int crs_dep_time = row.getInt("CRS_DEP_TIME");
-    int dep_time = row.getInt("DEP_TIME");
-    int crs_arr_time = row.getInt("CRS_ARR_TIME");
-    int arr_time = row.getInt("ARR_TIME");
-    float cancelled = row.getFloat("CANCELLED");
-    float diverted = row.getFloat("DIVERTED");
-    int distance = row.getInt("DISTANCE");
-
-    DataPoint dp = new DataPoint(fl_date, mkt_carrier, mkt_carrier_fl_num, origin, origin_city_name, origin_state_abr, origin_wac, dest, dest_city_name, dest_state_abr, dest_wac, crs_dep_time, dep_time, crs_arr_time, arr_time, cancelled, diverted, distance);
-    dataPoints.add(dp);
-    
-    //System.out.println(dp.toString());
-  }
+void setup()
+{
+  MakeDataArray array = new MakeDataArray();
+  array.points();
+  dataPoints = array.returnData();
 }
 
 void draw()
 {
-  int a=10;
-  int b=20;
-  background(0); //<>//
-  for (int i = 0; i < dataPoints.size(); i++)
+  background(0);
+  switch(screen)
   {
-    PFont theFont = loadFont("ArialMT-10.vlw");
-    textSize(20);
-    textFont(theFont);
-    textAlign(LEFT);
-    DataPoint dp = dataPoints.get(i);
-    text(dp.toString(), a, b);
-    if (i%4 ==0 && i>=4)
-    {
-      b = 20;
-      a = a+200;
-    } else
-    {
-      b = b + 225;
-    }
+  case 1:
+    thePage = new HomePage();
+    thePage.draw();
+    break;
+  case 2:
+    printer = new DataPrinter(10, 20);
+    printer.print();
+    exit2 = new Exit();
+    exit2.draw();
+    break;
+  case 3:
+    airportCounter = new Histogram(airports, "Airport", "No. Of Flights", "Number of Flights From Each Airport");
+    airportCounter.draw();
+    exit3 = new Exit();
+    exit3.draw();
+    break;
+  case 4:
+  case 5:
+    //LinePlot line = new LinePlot(estArrivalTimeArray, arrivalTimeArray);
+    //line.findDifference();
+    //line.draw();
+    break;
+  case 6:
+    exit6 = new Exit();
+    exit6.draw();
+    cancellations = new PrintPieChart(cancelledArray, "Cancelled Flights", "Non-Cancelled Flights");
+    cancellations.draw();
+    break;
+  case 7:
+    exit7 = new Exit();
+    exit7.draw();
+    diversions = new PrintPieChart(divertedArray, "Diverted Flights", "Non-Diverted Flights");
+    diversions.draw();
+    break;
   }
-  
 }
