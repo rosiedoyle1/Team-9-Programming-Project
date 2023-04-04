@@ -5,6 +5,7 @@ import java.io.IOException;
 public class FlightData {
 
   try {
+<<<<<<< HEAD
    FileInputStream file = new FileInputStream(new File("flights100k(1).xlsx"));
  
     for (Row row : sheet) {
@@ -23,6 +24,32 @@ public class FlightData {
       Arraylist<boolean> cancelled;
       Arraylist<boolean> diverted;
       Arraylist<int> distance;
+=======
+   FileReader file = new FileReader(new File("flights100k(1).xlsx"));
+   BufferedReader buffer = new BufferedReader(file);
+   int i;
+   while ((i= buffer.read()!=-1)
+    {
+      System.out.print((char)i);
+    }
+    
+    for (Row row : sheet) {
+      ArrayList<String> flightDate;
+      ArrayList<String> carrier;
+      ArrayList<int> flightNumber;
+      ArrayList<String> originCity;
+      ArrayList<String> originState;
+      ArrayList<String> originWAC;
+      ArrayList<String> destinationAirport;
+      ArrayList<String destinationCity;
+      ArrayList<int> schedDeptTime;
+      ArrayList<int> deptTime;
+      ArrayList<int> schedArrivTime;
+      ArrayList<int> arrivTime;
+      ArrayList<boolean> cancelled;
+      ArrayList<boolean> diverted;
+      ArrayList<int> distance;
+>>>>>>> d9e630994cb91ccc05cf8943d6e87b8309722b7a
       for (Cell cell : row) 
       {
         switch (cell.getColumnIndex()) 
@@ -72,10 +99,6 @@ public class FlightData {
         case 14: 
           distance = (int) cell.getStringCellValue();
         }
-      }
-      if (!origin.isEmpty() && !destination.isEmpty() && passengers > 0) 
-      {
-        System.out.println("Flight from " + origin + " to " + destination + " with " + passengers + " passengers.");
       }
     }
     file.close();
