@@ -31,7 +31,7 @@ int TX;
 PFont theFont = loadFont("ArialMT-25.vlw");
 
 void draw() {
-  //background(255, 0, 0);
+  background(clouds);
 
  aFileReader.draw();
  String names[] = {"CA", "NY", "WA", "IL", "TX"};
@@ -74,7 +74,7 @@ void draw()
   
   beginRecord(PDF, "WearablePortraitData.pdf");
   
-  background(20);
+  //background(20);
   
   table = loadTable("flights2k(1).csv", "header");
   

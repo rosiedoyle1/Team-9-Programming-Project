@@ -22,6 +22,7 @@ int[] c;
 int[] d;
 int a;
 int b;
+PImage clouds;
 
 void settings()
 {
@@ -33,11 +34,12 @@ void setup()
   MakeDataArray array = new MakeDataArray();
   array.points();
   dataPoints = array.returnData();
+  clouds = loadImage("cloud.jpg");
 }
 
 void draw()
 {
-  background(0);
+  background(clouds);
   switch(screen)
   {
   case 1:

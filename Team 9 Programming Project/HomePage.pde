@@ -6,13 +6,13 @@ class HomePage {
   HomePage() 
   {
     textFont(stdFont);
-    widget1 = new Widget(15, 15, 400, 300, "Group 9", color(#C6C4C4), stdFont, EVENT_BUTTON1);
-    widget2 = new Widget(15, 330, 400, 590, "Flights", color(#FB4570), stdFont, EVENT_BUTTON2);
-    widget3 = new Widget(430, 15, 450, 475, "Airports", color(#FFA500), stdFont, EVENT_BUTTON3);
-    widget4 = new Widget(430, 500, 450, 420, "Dates", color(#F8C8DC), stdFont, EVENT_BUTTON4);
-    widget5 = new Widget(890, 15, 500, 400, "Lateness", color(#77DD77), stdFont, EVENT_BUTTON5);
-    widget6 = new Widget(890, 425, 500, 490, "Destination Popularity", color(#FDFD96), stdFont, EVENT_BUTTON6);
-    widget7 = new Widget(1400, 15, 500, 450, "Diverted", color(#F2A2E8), stdFont, EVENT_BUTTON7);
+    widget1 = new Widget(15, 15, 400, 300, "Group 9", color(198, 196, 196, 200), stdFont, EVENT_BUTTON1);
+    widget2 = new Widget(15, 330, 400, 590, "Flights", color(251, 69, 112, 200), stdFont, EVENT_BUTTON2);
+    widget3 = new Widget(430, 15, 450, 475, "Airports", color(255, 165, 0, 200), stdFont, EVENT_BUTTON3);
+    widget4 = new Widget(430, 500, 450, 420, "Dates", color(248, 200, 220, 200), stdFont, EVENT_BUTTON4);
+    widget5 = new Widget(890, 15, 500, 400, "Lateness", color(119, 221, 119, 200), stdFont, EVENT_BUTTON5);
+    widget6 = new Widget(890, 425, 500, 490, "Destination Popularity", color(253, 253, 150, 200), stdFont, EVENT_BUTTON6);
+    widget7 = new Widget(1400, 15, 500, 450, "Diverted", color(242, 162, 232, 200), stdFont, EVENT_BUTTON7);
 
     widgetList.add(widget1);
     widgetList.add(widget2);

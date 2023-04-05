@@ -41,7 +41,7 @@ class Histogram {
 
   void draw()
   {
-    background(0);
+    background(clouds);
     uniqueValues.addAll(set);
     int barWidth = xAxisWidth/uniqueValues.size();
     textFont(mediumFont);
