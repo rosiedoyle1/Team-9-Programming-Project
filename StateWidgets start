@@ -1,0 +1,111 @@
+class Widget
+{
+  int x;
+  int y;
+  color fillColor = color(255);
+  
+  Widget(int x, int y, color fillColor) 
+  {
+    this.x = x;
+    this.y = y;
+    this.fillColor = fillColor;
+  }
+  
+  void draw() 
+  {
+    fill(fillColor);
+    rect(x, y, 15, 15);
+  }
+}
+
+class WidgetContainer 
+{
+  Widget[] widgets = new Widget[50];
+  
+  WidgetContainer() 
+  {
+    for (int i = 0; i < 50; i++) 
+    {
+      int x = 50;
+      int y = 50;
+      color fillColor = color(255);
+      widgets[i] = new Widget(0, 0, 255);
+    }
+  }
+  
+  void draw() 
+  {
+    theWidgetContainer.setPosition();
+    for (int i = 0; i < 50; i++) 
+    {
+      widgets[i].draw();
+    }
+  }
+  
+  void setPosition() 
+  {
+    widgets[1].x = 100;
+    widgets[1].y = 50;
+    widgets[2].x = 80;
+    widgets[2].y = 120; 
+    widgets[3].x = 60;
+    widgets[3].y = 280;
+    widgets[4].x = 110;
+    widgets[4].y = 210;
+    widgets[5].x = 190;
+    widgets[5].y = 230;
+    widgets[6].x = 160;
+    widgets[6].y = 150;
+    widgets[7].x = 170;
+    widgets[7].y = 340; 
+    widgets[8].x = 260;
+    widgets[8].y = 170; 
+  }
+}
+
+
+--------Main--------
+
+usaMap theMap = new usaMap();
+WidgetContainer theWidgetContainer = new WidgetContainer();
+void setup()
+  {
+    size(1000,700);
+  }
+   
+ void draw()
+ {
+  theMap.draw();
+  theWidgetContainer.draw();
+ }
+   
+
+  -------------------map------------------
+
+class usaMap
+{
+  PImage Map;
+  usaMap() 
+  {
+ 
+  }
+
+  void setup()
+  {
+     Map = loadImage("colourMap.png");
+     Map.resize(850, 600);
+  }
+  void draw() 
+  {
+    theMap.setup();
+    image(Map, 0, 0);
+  }
+}
+
+
+  
+
+
+
+
+
