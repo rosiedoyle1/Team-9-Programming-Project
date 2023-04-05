@@ -14,9 +14,9 @@ class DataPrinter {
       textFont(theFont);
       textAlign(LEFT);
       DataPoint dp = dataPoints.get(i);
-      fill(255);
+      fill(0);
       text(dp.toString(), a, b);
-      fill(255);
+      fill(0);
       if ((i+1)%3 ==0 && i>=2)
       {
         b = 20;
