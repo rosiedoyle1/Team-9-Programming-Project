@@ -11,7 +11,6 @@ public static int truePieAngleWA;
 public static int truePieAngleIL;
 public static int truePieAngleTX;
 public static int total1;
-
 public static int truePieAngleCA;
 
 class PieChart {
@@ -29,10 +28,13 @@ int NY;
 int WA;
 int IL;
 int TX;
+PFont theFont = loadFont("ArialMT-25.vlw");
+
 void draw() {
   //background(255, 0, 0);
 
  aFileReader.draw();
+ String names[] = {"CA", "NY", "WA", "IL", "TX"};
  CA = truePieAngleCA;
  NY = truePieAngleNY;
  WA = truePieAngleWA;
@@ -41,17 +43,20 @@ void draw() {
  int[] angles = { CA, NY, WA, IL, TX };
   println(CA +" is the CA");
   println(total1);
-  pieChart(700, angles);
+  pieChart(700, angles, names);
   
 }
 
-void pieChart(float diameter, int[] data) {
+void pieChart(float diameter, int[] data, String names[]) {
   float lastAngle = 0;
   for (int i = 0; i < data.length; i++) {
     float gray = map(i, 0, data.length, 0, 255);
     fill(255, gray, 0);
     arc(width/2, height/2, diameter, diameter, lastAngle, lastAngle+radians(data[i]));
     lastAngle += radians(data[i]);
+    rect(400, 300+(i*50), 100, 100, 25, 25, 25, 25);
+    textFont(theFont);
+    text(names[i], 510, 350+(i*50));
   }
 }
 }
