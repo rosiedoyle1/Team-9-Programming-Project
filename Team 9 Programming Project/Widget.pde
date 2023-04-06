@@ -44,4 +44,7 @@ class Widget
     }
     return EVENT_NULL;
   }
+  boolean isMouseOver() {
+    return mouseX > x && mouseX < x + width && mouseY > y && mouseY < y + height;
+  }
 }
