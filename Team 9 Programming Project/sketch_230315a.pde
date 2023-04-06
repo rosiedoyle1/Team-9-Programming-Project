@@ -13,11 +13,11 @@ DataPrinter printer;
 HomePage thePage;
 int screen = 1;
 Table table;
-Exit exit2;
-Exit exit3;
-Exit exit4;
-Exit exit6;
-Exit exit7;
+Exit exit2, exit3, exit6, exit7;
+//Exit exit3;
+//Exit exit4;
+//Exit exit6;
+//Exit exit7;
 int[] c;
 int[] d;
 int a;
@@ -63,7 +63,7 @@ void draw()
     //LinePlot line = new LinePlot(estArrivalTimeArray, arrivalTimeArray);
     //line.findDifference();
     //line.draw();
-    break;
+    //break;
   case 6:
     
     //cancellations = new PrintPieChart(cancelledArray, "Cancelled Flights", "Non-Cancelled Flights");
