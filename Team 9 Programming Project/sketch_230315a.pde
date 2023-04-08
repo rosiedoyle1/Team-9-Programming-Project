@@ -11,7 +11,9 @@ PieChart thePieChart;
 Histogram airportCounter;
 DataPrinter printer;
 HomePage thePage;
-int screen = 1;
+defaultBackEnd foundation;
+Gif loopingGif;
+int screen = 0;
 Table table;
 Exit exit2, exit3, exit6, exit7;
 //Exit exit3;
@@ -35,6 +37,8 @@ void setup()
   array.points();
   dataPoints = array.returnData();
   clouds = loadImage("cloud.jpg");
+  loopingGif = new Gif(this, "Find7.gif");
+  loopingGif.play();
 }
 
 void draw()
@@ -42,6 +46,13 @@ void draw()
   background(clouds);
   switch(screen)
   {
+   case 0:
+     foundation = new defaultBackEnd();
+     foundation.draw();
+     image(loopingGif, 575, 175);
+     foundation.keyPressed();
+     foundation.mousePressed();
+     break;
   case 1:
     thePage = new HomePage();
     thePage.draw();

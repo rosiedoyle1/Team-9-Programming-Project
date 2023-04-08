@@ -21,7 +21,7 @@ fileReader aFileReader = new fileReader();
 void setup() {
  // size(1000, 700);
   noStroke();
-  noLoop();  // Run once and stop
+ // noLoop();  // Run once and stop
 }
 int CA;
 int NY;
@@ -69,7 +69,7 @@ void draw()
 {
   //size(1960, 900);
   noStroke();
-  noLoop();
+  //noLoop();
 
   
   beginRecord(PDF, "WearablePortraitData.pdf");
