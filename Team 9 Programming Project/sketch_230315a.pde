@@ -9,13 +9,13 @@ PrintPieChart cancellations;
 PrintPieChart diversions;
 PieChart thePieChart;
 Histogram airportCounter;
-DataPrinter printer;
 HomePage thePage;
 defaultBackEnd foundation;
 Gif loopingGif;
 int screen = 0;
+int entry = 0;
 Table table;
-Exit exit2, exit3, exit6, exit7;
+Exit exit1, exit2, exit3, exit4, exit6, exit7;
 //Exit exit3;
 //Exit exit4;
 //Exit exit6;
@@ -25,6 +25,7 @@ int[] d;
 int a;
 int b;
 PImage clouds;
+Dates dates;
 
 void settings()
 {
@@ -36,6 +37,8 @@ void setup()
   MakeDataArray array = new MakeDataArray();
   array.points();
   dataPoints = array.returnData();
+  cp5 = new ControlP5(this);
+  dates = new Dates();
   clouds = loadImage("cloud.jpg");
   loopingGif = new Gif(this, "Find7.gif");
   loopingGif.play();
@@ -47,6 +50,7 @@ void draw()
   switch(screen)
   {
    case 0:
+     cp5.hide();
      foundation = new defaultBackEnd();
      foundation.draw();
      image(loopingGif, 575, 175);
@@ -54,12 +58,13 @@ void draw()
      foundation.mousePressed();
      break;
   case 1:
+    cp5.hide();
     thePage = new HomePage();
     thePage.draw();
     break;
   case 2:
-    printer = new DataPrinter(10, 20);
-    printer.print();
+    //printer = new DataPrinter(10, 20);
+    //printer.print();
     exit2 = new Exit();
     exit2.draw();
     break;
@@ -70,6 +75,10 @@ void draw()
     exit3.draw();
     break;
   case 4:
+    cp5.show();
+    exit4 = new Exit();
+    exit4.draw();
+    break;
   case 5:
     //LinePlot line = new LinePlot(estArrivalTimeArray, arrivalTimeArray);
     //line.findDifference();
@@ -91,4 +100,14 @@ void draw()
     diversions.draw();
     break;
   }
+  
+    switch(entry)
+  {
+  case 1:
+    cp5.hide();
+    exit1 = new Exit();
+    exit1.draw();
+    break;
+  }
+  
 }

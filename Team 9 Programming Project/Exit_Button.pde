@@ -13,6 +13,7 @@ class Exit
     if (theEvent == EVENT_EXIT && mousePressed)
     {
       screen = 1;
+      //showData = false;
     }
   }
 }
