@@ -1,73 +1,6 @@
-class Widget
-{
-  int x;
-  int y;
-  color fillColor = color(255);
-  
-  Widget(int x, int y, color fillColor) 
-  {
-    this.x = x;
-    this.y = y;
-    this.fillColor = fillColor;
-  }
-  
-  void draw() 
-  {
-    fill(fillColor);
-    rect(x, y, 15, 15);
-  }
-}
-
-class WidgetContainer 
-{
-  Widget[] widgets = new Widget[50];
-  
-  WidgetContainer() 
-  {
-    for (int i = 0; i < 50; i++) 
-    {
-      int x = 50;
-      int y = 50;
-      color fillColor = color(255);
-      widgets[i] = new Widget(0, 0, 255);
-    }
-  }
-  
-  void draw() 
-  {
-    theWidgetContainer.setPosition();
-    for (int i = 0; i < 50; i++) 
-    {
-      widgets[i].draw();
-    }
-  }
-  
-  void setPosition() 
-  {
-    widgets[1].x = 100;
-    widgets[1].y = 50;
-    widgets[2].x = 80;
-    widgets[2].y = 120; 
-    widgets[3].x = 60;
-    widgets[3].y = 280;
-    widgets[4].x = 110;
-    widgets[4].y = 210;
-    widgets[5].x = 190;
-    widgets[5].y = 230;
-    widgets[6].x = 160;
-    widgets[6].y = 150;
-    widgets[7].x = 170;
-    widgets[7].y = 340; 
-    widgets[8].x = 260;
-    widgets[8].y = 170; 
-  }
-}
-
-
---------Main--------
-
 usaMap theMap = new usaMap();
 WidgetContainer theWidgetContainer = new WidgetContainer();
+Widget theWidget = new Widget(50,50, color(255),0);
 void setup()
   {
     size(1000,700);
@@ -78,34 +11,436 @@ void setup()
   theMap.draw();
   theWidgetContainer.draw();
  }
-   
 
-  -------------------map------------------
+final int BUTTON_PRESSED_NULL = -1;
+final int BUTTON_PRESSED_0 = 0;
+final int BUTTON_PRESSED_1 = 1;
+final int BUTTON_PRESSED_2 = 2;
+final int BUTTON_PRESSED_3 = 3;
+final int BUTTON_PRESSED_4 = 4;
+final int BUTTON_PRESSED_5 = 5;
+final int BUTTON_PRESSED_6 = 6;
+final int BUTTON_PRESSED_7 = 7;
+final int BUTTON_PRESSED_8 = 8;
+final int BUTTON_PRESSED_9 = 9;
+final int BUTTON_PRESSED_10 = 10;
+final int BUTTON_PRESSED_11 = 11;
+final int BUTTON_PRESSED_12 = 12;
+final int BUTTON_PRESSED_13 = 13;
+final int BUTTON_PRESSED_14 = 14;
+final int BUTTON_PRESSED_15 = 15;
+final int BUTTON_PRESSED_16 = 16;
+final int BUTTON_PRESSED_17 = 17;
+final int BUTTON_PRESSED_18 = 18;
+final int BUTTON_PRESSED_19 = 19;
+final int BUTTON_PRESSED_20 = 20;
+final int BUTTON_PRESSED_21 = 21;
+final int BUTTON_PRESSED_22 = 22;
+final int BUTTON_PRESSED_23 = 23;
+final int BUTTON_PRESSED_24 = 24;
+final int BUTTON_PRESSED_25 = 25;
+final int BUTTON_PRESSED_26 = 26;
+final int BUTTON_PRESSED_27 = 27;
+final int BUTTON_PRESSED_28 = 28;
+final int BUTTON_PRESSED_29 = 29;
+final int BUTTON_PRESSED_30 = 30;
+final int BUTTON_PRESSED_31 = 31;
+final int BUTTON_PRESSED_32 = 32;
+final int BUTTON_PRESSED_33 = 33;
+final int BUTTON_PRESSED_34 = 34;
+final int BUTTON_PRESSED_35 = 35;
+final int BUTTON_PRESSED_36 = 36;
+final int BUTTON_PRESSED_37 = 37;
+final int BUTTON_PRESSED_38 = 38;
+final int BUTTON_PRESSED_39 = 39;
+final int BUTTON_PRESSED_40 = 40;
+final int BUTTON_PRESSED_41 = 41;
+final int BUTTON_PRESSED_42 = 42;
+final int BUTTON_PRESSED_43 = 43;
+final int BUTTON_PRESSED_44 = 44;
+final int BUTTON_PRESSED_45 = 45;
+final int BUTTON_PRESSED_46 = 46;
+final int BUTTON_PRESSED_47 = 47;
+final int BUTTON_PRESSED_48 = 48;
+final int BUTTON_PRESSED_49 = 49;
 
-class usaMap
+class Widget
 {
-  PImage Map;
-  usaMap() 
+
+  float w = 15;
+  float h = 15;
+  int x;
+  int y;
+  int instance;
+  color fillColor = color(255);
+
+  Widget(int x, int y, color fillColor, int instance)
   {
- 
+    this.x = x;
+    this.y = y;
+    this.fillColor = fillColor;
+    this.instance = instance;
   }
 
-  void setup()
+
+  void draw()
   {
-     Map = loadImage("colourMap.png");
-     Map.resize(850, 600);
+    fill(fillColor);
+    rect(x, y, 15, 15);
   }
-  void draw() 
+
+  int getInstance(int mX, int mY)
   {
-    theMap.setup();
-    image(Map, 0, 0);
+    if (mX>x && mX < x+width && mY >y && mY <y+height)
+    {
+      return instance;
+    }
+    return BUTTON_PRESSED_NULL;
   }
-}
-
-
-  
 
 
 
+  void mouseMoved()
+  {
+    int localInstance = getInstance(mouseX, mouseY);
+    switch(localInstance)
+    {
+    case 1:
+
+      // Code for case BUTTON_PRESSED_1
+      break;
+    case 2:
+
+      // Code for case BUTTON_PRESSED_2
+      break;
+    case 3:
+
+      // Code for case BUTTON_PRESSED_3
+      break;
+    case 4:
+
+      // Code for case BUTTON_PRESSED_4
+      break;
+    case 5:
+
+      // Code for case BUTTON_PRESSED_5
+      break;
+    case 6:
+
+      // Code for case BUTTON_PRESSED_6
+      break;
+    case 7:
+
+      // Code for case BUTTON_PRESSED_7
+      break;
+    case 8:
+
+      // Code for case BUTTON_PRESSED_8
+      break;
+    case 9:
+
+      // Code for case BUTTON_PRESSED_9
+      break;
+    case 10:
+
+      // Code for case BUTTON_PRESSED_10
+      break;
+    case 11:
+
+      // Code for case BUTTON_PRESSED_11
+      break;
+    case 12:
+
+      // Code for case BUTTON_PRESSED_12
+      break;
+
+      // Code for case BUTTON_PRESSED_13
+      break;
+    case 14:
+
+      // Code for case BUTTON_PRESSED_14
+      break;
+    case 15:
+
+      // Code for case BUTTON_PRESSED_15
+      break;
+    case 16:
+
+      // Code for case BUTTON_PRESSED_16
+      break;
+    case 17:
+
+      // Code for case BUTTON_PRESSED_17
+      break;
+    case 18:
+
+      // Code for case BUTTON_PRESSED_18
+      break;
+    case 19:
+
+      // Code for case BUTTON_PRESSED_19
+      break;
+    case 20:
+
+      // Code for case BUTTON_PRESSED_20
+      break;
+    case 21:
+
+      // Code for case BUTTON_PRESSED_21
+      break;
+    case 22:
+
+      // Code for case BUTTON_PRESSED_22
+      break;
+    case 23:
+
+      // Code for case BUTTON_PRESSED_23
+      break;
+    case 24:
+
+      // Code for case BUTTON_PRESSED_24
+      break;
+    case 25:
+
+      // Code for case BUTTON_PRESSED_25
+      break;
+
+      // Code for case BUTTON_PRESSED_26
+      break;
+    case 27:
+
+      // Code for case BUTTON_PRESSED_27
+      break;
+    case 28:
+
+      break;
+    case 29:
+
+      // Code for case BUTTON_PRESSED_29
+      break;
+    case 30:
+
+      // Code for case BUTTON_PRESSED_30
+      break;
+    case 31:
+
+      // Code for case BUTTON_PRESSED_31
+      break;
+    case 32:
+
+      // Code for case BUTTON_PRESSED_32
+      break;
+    case 33:
+
+      // Code for case BUTTON_PRESSED_33
+      break;
+    case 34:
+
+      // Code for case BUTTON_PRESSED_34
+      break;
+    case 35:
+
+      // Code for case BUTTON_PRESSED_35
+      break;
+    case 36:
+
+      // Code for case BUTTON_PRESSED_36
+      break;
+    case 37:
+
+      // Code for case BUTTON_PRESSED_37
+      break;
+    case 38:
+
+      // Code for case BUTTON_PRESSED_38
+      break;
+    case 39:
+
+      // Code for case BUTTON_PRESSED_39
+      break;
+    case 40:
+
+      // Code for case BUTTON_PRESSED_40
+      break;
+    case 41:
+
+      // Code for case BUTTON_PRESSED_41
+      break;
+    case 42:
+
+      // Code for case BUTTON_PRESSED_42
+      break;
+    case 43:
+
+      // Code for case BUTTON_PRESSED_43
+      break;
+    case 44:
+
+      // Code for case BUTTON_PRESSED_44
+      break;
+    case 45:
+
+      // Code for case BUTTON_PRESSED_45
+      break;
+    case 46:
+
+      // Code for case BUTTON_PRESSED_46
+      break;
+    case 47:
+
+      // Code for case BUTTON_PRESSED_47
+      break;
+    case 48:
+
+      // Code for case BUTTON_PRESSED_48
+      break;
+    case 49:
+
+      // Code for case BUTTON_PRESSED_49
+      break;
+    case 50:
+
+      // Code for case BUTTON_PRESSED_50
+      break;
+    default:
+      // Default code
+      break;
+    }
+  }
+
+  class WidgetContainer
+  {
+    ArrayList<Widget> statesList = new ArrayList<Widget>();
+    Widget[] widgets = new Widget[50];
+    WidgetContainer()
+    {
+      for (int i = 0; i < 50; i++)
+      {
+        int x = 50;
+        int y = 50;
+        color fillColor = color(255);
+        widgets[i] = new Widget(0, 0, 255, 0);
+      }
+    }
 
 
+    void draw()
+    {
+      fill(#A5A5A5);
+      rect(865, 75, 130, 240);
+      theWidgetContainer.setPosition();
+      for (int i = 0; i < 50; i++)
+      {
+        widgets[i].draw();
+      }
+      //for (int i=0; i<50; i++)
+      //{
+      //  widgets.get(i).draw();
+      //  int event = widgets.get(i).getEvent(mouseX, mouseY);
+      //}
+    }
+
+    void setPosition()
+    {
+      widgets[1].x = 100;
+      widgets[1].y = 50;
+      widgets[2].x = 80;
+      widgets[2].y = 120;
+      widgets[3].x = 60;
+      widgets[3].y = 280;
+      widgets[4].x = 110;
+      widgets[4].y = 210;
+      widgets[5].x = 190;
+      widgets[5].y = 230;
+      widgets[6].x = 160;
+      widgets[6].y = 150;
+      widgets[7].x = 170;
+      widgets[7].y = 340;
+      widgets[8].x = 260;
+      widgets[8].y = 170;
+      widgets[9].x = 260;
+      widgets[9].y = 90;
+      widgets[10].x = 280;
+      widgets[10].y = 260;
+      widgets[11].x = 270;
+      widgets[11].y = 350;
+      widgets[12].x = 370;
+      widgets[12].y = 90;
+      widgets[13].x = 370;
+      widgets[13].y = 150;
+      widgets[14].x = 370;
+      widgets[14].y = 210;
+      widgets[15].x = 390;
+      widgets[15].y = 275;
+      widgets[16].x = 410;
+      widgets[16].y = 340;
+      widgets[17].x = 380;
+      widgets[17].y = 420;
+      widgets[18].x = 450;
+      widgets[18].y = 110;
+      widgets[19].x = 470;
+      widgets[19].y = 200;
+      widgets[20].x = 480;
+      widgets[20].y = 270;
+      widgets[21].x = 490;
+      widgets[21].y = 350;
+      widgets[22].x = 490;
+      widgets[22].y = 410;
+      widgets[23].x = 520;
+      widgets[23].y = 140;
+      widgets[24].x = 530;
+      widgets[24].y = 230;
+      widgets[25].x = 580;
+      widgets[25].y = 230;
+      widgets[26].x = 630;
+      widgets[26].y = 220;
+      widgets[27].x = 610;
+      widgets[27].y = 280;
+      widgets[28].x = 590;
+      widgets[28].y = 320;
+      widgets[29].x = 540;
+      widgets[29].y = 380;
+      widgets[30].x = 590;
+      widgets[30].y = 380;
+      widgets[31].x = 640;
+      widgets[31].y = 380;
+      widgets[32].x = 680;
+      widgets[32].y = 350;
+      widgets[33].x = 690;
+      widgets[33].y = 480;
+      widgets[34].x = 700;
+      widgets[34].y = 310;
+      widgets[35].x = 700;
+      widgets[35].y = 270;
+      widgets[36].x = 665;
+      widgets[36].y = 250;
+      widgets[37].x = 700;
+      widgets[37].y = 200;
+      widgets[38].x = 730;
+      widgets[38].y = 140;
+      widgets[39].x = 595;
+      widgets[39].y = 170;
+      widgets[40].x = 800;
+      widgets[40].y = 80;
+      widgets[41].x = 100;
+      widgets[41].y = 460;
+      widgets[42].x = 870;
+      widgets[42].y = 80;
+      widgets[43].x = 870;
+      widgets[43].y = 105;
+      widgets[44].x = 870;
+      widgets[44].y = 130;
+      widgets[45].x = 870;
+      widgets[45].y = 155;
+      widgets[46].x = 870;
+      widgets[46].y = 180;
+      widgets[47].x = 870;
+      widgets[47].y = 205;
+      widgets[48].x = 870;
+      widgets[48].y = 230;
+      widgets[49].x = 870;
+      widgets[49].y = 255;
+      widgets[0].x = 870;
+      widgets[0].y = 280;
+    }
+  }
