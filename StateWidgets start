@@ -89,14 +89,12 @@ class Widget
     rect(x, y, 15, 15);
   }
 
-  int getInstance(int mX, int mY)
-  {
-    if (mX>x && mX < x+width && mY >y && mY <y+height)
-    {
-      return instance;
-    }
-    return BUTTON_PRESSED_NULL;
+  int getInstance(int mX, int mY) {
+  if (mX > x && mX < x + w && mY > y && mY < y + h) {
+    return instance;
   }
+  return BUTTON_PRESSED_NULL;
+}
 
 
 
