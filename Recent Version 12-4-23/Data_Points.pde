@@ -7,7 +7,7 @@ class MakeDataArray
   }
   void points()
   {
-    table = loadTable("flights_full.csv", "header");
+    table = loadTable("flights100k(1).csv", "header");
     for (TableRow row : table.rows()) {
       String fl_date = row.getString("FL_DATE");
       String mkt_carrier = row.getString("MKT_CARRIER");
