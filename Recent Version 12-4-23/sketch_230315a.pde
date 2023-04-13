@@ -14,7 +14,7 @@ void setup()
   loopingGif = new Gif(this, "Find7.gif");
   loopingGif.play();
   // Read the CSV file
-  String[] lines = loadStrings("flights2k(1).csv");
+  String[] lines = loadStrings("flights100k(1).csv");
 
   // Create DataPrinter
   printer1 = new DataPrinter1();
